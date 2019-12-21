@@ -1,3 +1,3 @@
-export class SERVICE{
+export class {{SERVICE_CAMELCASE}}{
 	
 }

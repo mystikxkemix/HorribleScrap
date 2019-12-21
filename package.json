@@ -1,5 +1,5 @@
 {
-	"name": "{{SERVICE}}",
+	"name": "{{SERVICE_LOWERCASE}}",
 	"version": "1.0.0",
 	"description": "{{DESCRIPTION}}",
 	"main": "dist/index.js",
@@ -16,14 +16,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@bitbucket.org/madboxgames/{{SERVICE}}.git"
+		"url": "git+ssh://git@bitbucket.org/madboxgames/{{SERVICE_LOWERCASE}}.git"
 	},
 	"keywords": [
-		"{{SERVICE}}"
+		"{{SERVICE_LOWERCASE}}"
 	],
 	"author": "{{AUTHOR}}",
 	"license": "ISC",
-	"homepage": "https://bitbucket.org/madboxgames/{{SERVICE}}#readme",
+	"homepage": "https://bitbucket.org/madboxgames/{{SERVICE_LOWERCASE}}#readme",
 	"devDependencies": {
 		"@types/chai": "^4.2.7",
 		"@types/mocha": "^5.2.7",
