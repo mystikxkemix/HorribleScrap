@@ -1,0 +1,11 @@
+# Node Files
+node_modules
+node_modules/*
+npm-debug.log
+
+# MacBook Files
+.DS_Store
+*/.DS_Store
+
+# Built in postinstall
+dist/
