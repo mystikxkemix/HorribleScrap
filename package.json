@@ -1,0 +1,40 @@
+{
+	"name": "{{SERVICE}}",
+	"version": "1.0.0",
+	"description": "{{DESCRIPTION}}",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"clean": "rimraf ./dist",
+		"build": "npm run clean && tsc",
+		"build:prod": "npm run clean && tsc -p tsconfig-prod.json",
+		"postinstall": "npm run build:prod && rimraf ./src",
+		"start": "npm run build && node                 ./dist/index.js",
+		"debug": "npm run build && node --inspect-brk   ./dist/index.js",
+		"test": "npm run build && mocha               './dist/**/*.test.js'",
+		"test:debug": "npm run build && mocha --inspect-brk './dist/**/*.test.js'"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@bitbucket.org/madboxgames/{{SERVICE}}.git"
+	},
+	"keywords": [
+		"{{SERVICE}}"
+	],
+	"author": "{{AUTHOR}}",
+	"license": "ISC",
+	"homepage": "https://bitbucket.org/madboxgames/{{SERVICE}}#readme",
+	"devDependencies": {
+		"@types/chai": "^4.2.7",
+		"@types/mocha": "^5.2.7",
+		"@types/sinon": "^7.5.1",
+		"chai": "^4.2.0",
+		"mocha": "^6.2.2",
+		"rimraf": "^3.0.0",
+		"sinon": "^7.5.0",
+		"typescript": "^3.7.3"
+	},
+	"dependencies": {
+		"@types/node": "^12.12.14"
+	}
+}
