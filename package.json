@@ -8,7 +8,7 @@
 		"clean": "rimraf ./dist",
 		"build": "npm run clean && tsc",
 		"build:prod": "npm run clean && tsc -p tsconfig-prod.json",
-		"postinstall": "npm run build:prod && rimraf ./src",
+		"postinstall": "npm run build:prod",
 		"start": "npm run build && node                 ./dist/index.js",
 		"debug": "npm run build && node --inspect-brk   ./dist/index.js",
 		"test": "npm run build && mocha               './dist/**/*.test.js'",
