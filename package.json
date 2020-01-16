@@ -1,7 +1,7 @@
 {
-	"name": "{{SERVICE_LOWERCASE}}",
+	"name": "horrible-scrap",
 	"version": "1.0.0",
-	"description": "{{DESCRIPTION}}",
+	"description": "HorribleSubs Scrapper",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
@@ -16,14 +16,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@bitbucket.org/madboxgames/{{SERVICE_LOWERCASE}}.git"
+		"url": "git+ssh://git@bitbucket.org/madboxgames/horrible-scrap.git"
 	},
 	"keywords": [
-		"{{SERVICE_LOWERCASE}}"
+		"horrible-scrap"
 	],
-	"author": "{{AUTHOR}}",
+	"author": "Mike_OLIVA",
 	"license": "ISC",
-	"homepage": "https://bitbucket.org/madboxgames/{{SERVICE_LOWERCASE}}#readme",
+	"homepage": "https://bitbucket.org/madboxgames/horrible-scrap#readme",
 	"devDependencies": {
 		"@types/chai": "^4.2.7",
 		"@types/mocha": "^5.2.7",

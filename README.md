@@ -1,22 +1,22 @@
-{{SERVICE_CAMELCASE}}
+Horrible-scrap
 =====================
 
 Description
 ------------
 
-{{DESCRIPTION}}
+HorribleSubs Scrapper
 
 Installing
 ----------
 
 ```bash
-npm install --save git+ssh://git@bitbucket.org:madboxgames/{{SERVICE_LOWERCASE}}#master
+npm install --save git+ssh://git@bitbucket.org:madboxgames/horrible-scrap#master
 ```
 Usage
 -----
 
 ```js
-import { {{SERVICE_CAMELCASE}} } from '{{SERVICE_LOWERCASE}}';
+import { Horrible-scrap } from 'horrible-scrap';
 
 // TO BE COMPLETED...
 ```

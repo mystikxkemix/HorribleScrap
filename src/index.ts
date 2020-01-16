@@ -1,3 +1,3 @@
-export class {{SERVICE_CAMELCASE}}{
+export class Horrible-scrap{
 	
 }
