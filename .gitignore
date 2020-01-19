@@ -9,3 +9,5 @@ npm-debug.log
 
 # Built in postinstall
 dist/
+
+.idea

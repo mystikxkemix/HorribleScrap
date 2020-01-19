@@ -4,6 +4,9 @@
 	"description": "HorribleSubs Scrapper",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"bin": {
+		"horrible-scrap": "dist/commander.js"
+	},
 	"scripts": {
 		"clean": "rimraf ./dist",
 		"build": "npm run clean && tsc",
@@ -35,6 +38,9 @@
 		"typescript": "^3.7.3"
 	},
 	"dependencies": {
-		"@types/node": "^12.12.14"
+		"@types/node": "^12.12.14",
+		"@types/request": "^2.48.4",
+		"commander": "^4.1.0",
+		"request": "^2.88.0"
 	}
 }
