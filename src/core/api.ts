@@ -1,5 +1,5 @@
 import request from 'request';
-import cheerio from 'cheerio';
+import BeautifulDom from 'beautiful-dom';
 import {Show} from "./show";
 
 const base_url =  "https://horriblesubs.info";
@@ -83,56 +83,28 @@ namespace Tool {
 }
 
 namespace InternalAPI{
-    export function GetAllEpisodes(id: number, nextId: number = 0, oldElements: Cheerio | undefined = undefined): Promise<string[]>{
+    export function GetAllEpisodes(id: number, nextId: number = 0): Promise<string[]>{
         return new Promise<string[]>(function(resolve, reject) {
             let url = base_url + '/api.php?method=getshows&type=show&showid=' + id + "&nextid=" + nextId;
             request(url,
-                function (error, response, body) {
-                    if(error) return reject(error);
-                    console.log('==================== ' + nextId);
-                    if(nextId > 1) return resolve(['']);
-                    var $ = cheerio.load(body);
-                    let elements: Cheerio = $('.rls-info-container');
- 
-                    if(!oldElements) oldElements = elements;
-                    else oldElements = oldElements.add(elements);
-
-                    // oldElements = oldElements.sort(function(a, b){
-                    //     if(Number(a.attribs['id']) > Number(b.attribs['id'])) return -1;
-                    //     if(Number(a.attribs['id']) < Number(b.attribs['id'])) return 1;
-                    //     return 0;
-                    // });
-                    //
-                    // oldElements.forEach(function(e){
-                    //     console.log(e.attribs['id']);
-                    // });
-
-                    for(var i = 0; i < elements.length; i++){
-                        console.log(elements[i].attribs['id']);
-                    }
+                function (error, response, body)
+                {
+                    let root = new BeautifulDom(body);
+                    let array = root.getElementsByClassName('rls-info-container');
                     
-                    console.log('----------------------')
-
-                    if(Number(elements[elements.length - 1].attribs['id']) > 1)
-                        return resolve(InternalAPI.GetAllEpisodes(id, nextId + 1, oldElements));
-
-                    // return res olve(oldElements.map(GetStringFromEpisode));
                     
-                   resolve(['']);
-                })
+                    array.forEach(function(e){
+                        console.log(e.getElementsByClassName('link-720p')[0]
+                            .getElementsByClassName('hs-magnet-link')[0]
+                            .getElementsByTagName('a')[0]
+                            .getAttribute('href'));
+                    });
+                    
+                    resolve([''])
+                    
+                }
+            );
+
         });
-    }
-    
-    function GetStringFromEpisode(episode: CheerioElement): string  {
-        // let dl = episode.('.rls-link link-720p');
-        // console.log(dl?.html());
-        //
-        // let dll = dl?.children('.hs-magnet-link');
-        // console.log(dll?.html());
-        //
-        // let dlll = dll?.children('.a');
-        // console.log(dlll?.html());
-        
-        return "";
     }
 }
