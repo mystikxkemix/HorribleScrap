@@ -32,7 +32,7 @@ export namespace HorribleScrap {
 
 }
 
-HorribleScrap.getEpisodes("Goblin Slayer")
+HorribleScrap.getEpisodes("Sword Art Online")
     .then(function (episodes) {
         episodes.forEach(function (episode) {
             console.log(episode.formats.getValue(VideoResolution.vr_720p)?.magnet);

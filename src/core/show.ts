@@ -27,7 +27,7 @@ export class Show {
         let self = this;
         return API.getEpisodes(this.id)
             .then(function (episodes) {
-                if (!episodes || episodes.length) throw new Error('Issue on loading episodes.');
+                if (!episodes || episodes.length === 0) throw new Error('Issue on loading episodes.');
 
                 episodes = episodes.sort(function (a, b) {
                     if (a.id < b.id)
