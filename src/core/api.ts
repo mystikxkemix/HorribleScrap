@@ -106,13 +106,6 @@ namespace InternalAPI {
                     if (Number(allElements[allElements.length - 1].getAttribute('id')) > 1)
                         return resolve(InternalAPI.GetAllEpisodes(id, nextId + 1, allElements));
 
-                    // array.forEach(function(e){
-                    //     console.log(e.getElementsByClassName('link-720p')[0]
-                    //         .getElementsByClassName('hs-magnet-link')[0]
-                    //         .getElementsByTagName('a')[0]
-                    //         .getAttribute('href'));
-                    // });
-
                     resolve(allElements.map(function (html) {
                         return new episode(html);
                     }));
