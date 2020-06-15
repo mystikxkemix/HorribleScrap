@@ -5,7 +5,7 @@ import ora from 'ora';
 
 const spinner = ora();
 
-export namespace HorribleScrap {
+namespace HorribleScrapInternal {
     export function getShows() {
         spinner.start();
         spinner.text = "Loading shows..."
@@ -19,7 +19,7 @@ export namespace HorribleScrap {
     export function getShow(name: string): Promise<Show> {
         spinner.start();
         spinner.text = "Loading show: " + name;
-        return HorribleScrap.getShows()
+        return HorribleScrapInternal.getShows()
             .then(shows => {
                 return shows.find(show => {
                     return show.title.toLowerCase() === name.toLowerCase();
@@ -48,7 +48,7 @@ export namespace HorribleScrap {
     }
 
     export function getEpisodes(name: string): Promise<episode[]> {
-        return HorribleScrap.getShow(name)
+        return HorribleScrapInternal.getShow(name)
             .then(show => {
                 spinner.start();
                 spinner.text = "Loading episodes";
@@ -65,11 +65,25 @@ export namespace HorribleScrap {
     }
 }
 
+export namespace HorribleScrap{
+    export async function getEpisodes(show: string, output: string){
+        return HorribleScrapInternal.getEpisodes(show)
+            .then(function (episodes) {
+                let magnets: string[] = [];
+                episodes.forEach(function (episode) {
+                    let resolution = episode.formats.getValue(VideoResolution.vr_720p);
+                    if(resolution)
+                        magnets.push(resolution.magnet);
+                })
 
-HorribleScrap.getEpisodes("boruto - naruto next generations")
-    .then(function (episodes) {
-        episodes.forEach(function (episode) {
-            //console.log(episode.formats.getValue(VideoResolution.vr_720p)?.magnet);
-        })
-    })
-    .catch();
+                return magnets;
+            })
+            .then(function(magnets){
+                console.log('-------------------')
+                magnets.forEach(function(magnet) {
+                    console.log(magnet)
+                })
+                console.log('-------------------')
+            });
+    }
+}
