@@ -1,50 +1,50 @@
 {
-	"name": "horrible-scrap",
-	"version": "1.0.0",
-	"description": "HorribleSubs Scrapper",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"bin": {
-		"horrible-scrap": "dist/commander.js"
-	},
-	"scripts": {
-		"clean": "rimraf ./dist",
-		"build": "npm run clean && tsc",
-		"build:prod": "npm run clean && tsc -p tsconfig-prod.json",
-		"postinstall": "npm run build:prod",
-		"start": "npm run build && node                 ./dist/index.js",
-		"debug": "npm run build && node --inspect-brk   ./dist/index.js",
-		"test": "npm run build && mocha               './dist/**/*.test.js'",
-		"test:debug": "npm run build && mocha --inspect-brk './dist/**/*.test.js'"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+ssh://git@bitbucket.org/madboxgames/horrible-scrap.git"
-	},
-	"keywords": [
-		"horrible-scrap"
-	],
-	"author": "Mike_OLIVA",
-	"license": "ISC",
-	"homepage": "https://bitbucket.org/madboxgames/horrible-scrap#readme",
-	"devDependencies": {
-		"@types/chai": "^4.2.7",
-		"@types/mocha": "^5.2.7",
-		"@types/sinon": "^7.5.1",
-		"chai": "^4.2.0",
-		"mocha": "^6.2.2",
-		"rimraf": "^3.0.0",
-		"sinon": "^7.5.0",
-		"typescript": "^3.7.3"
-	},
-	"dependencies": {
-		"@types/node": "^12.12.14",
-		"@types/ora": "^3.2.0",
-		"@types/request": "^2.48.4",
-		"beautiful-dom": "^1.0.7",
-		"commander": "^4.1.0",
-		"ora": "^4.0.3",
-		"request": "^2.88.0",
-		"typescript-collections": "^1.3.3"
-	}
+    "name": "horrible-scrap",
+    "version": "1.0.1",
+    "description": "HorribleSubs Scrapper",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "bin": {
+        "horrible-scrap": "dist/commander.js"
+    },
+    "scripts": {
+        "clean": "rimraf ./dist",
+        "build": "npm run clean && tsc",
+        "build:prod": "npm run clean && tsc -p tsconfig-prod.json",
+        "postinstall": "npm run build:prod",
+        "start": "npm run build && node                 ./dist/index.js",
+        "debug": "npm run build && node --inspect-brk   ./dist/index.js",
+        "test": "npm run build && mocha               './dist/**/*.test.js'",
+        "test:debug": "npm run build && mocha --inspect-brk './dist/**/*.test.js'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com:mystikxkemix/HorribleScrap.git"
+    },
+    "keywords": [
+        "horrible-scrap"
+    ],
+    "author": "Mike_OLIVA",
+    "license": "ISC",
+    "homepage": "https://github.com/mystikxkemix/HorribleScrap",
+    "devDependencies": {
+        "@types/chai": "^4.2.7",
+        "@types/mocha": "^5.2.7",
+        "@types/sinon": "^7.5.1",
+        "chai": "^4.2.0",
+        "mocha": "^6.2.2",
+        "rimraf": "^3.0.0",
+        "sinon": "^7.5.0",
+        "typescript": "^3.7.3"
+    },
+    "dependencies": {
+        "@types/node": "^12.12.14",
+        "@types/ora": "^3.2.0",
+        "@types/request": "^2.48.4",
+        "beautiful-dom": "^1.0.7",
+        "commander": "^4.1.0",
+        "ora": "^4.0.3",
+        "request": "^2.88.0",
+        "typescript-collections": "^1.3.3"
+    }
 }
